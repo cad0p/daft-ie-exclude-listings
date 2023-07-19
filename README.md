@@ -2,11 +2,11 @@
 
 Useful when you are searching for a new place to stay and you found that a listing you have already checked out is not for you. This way you can remove it from the map and only the new listings and the ones you are interested in will appear!
 
-Right now to exclude it you have to modify the code and add the id of the listing to exclude, but I plan to add a button to exclude automatically. You can find the id of the listing in the full URL of the listing, at the end, like this:
+To exclude it you have to click a button:
+<img width="1512" alt="image" src="https://github.com/cad0p/daft-ie-exclude-listings/assets/14107574/54e378e4-0c59-4e3d-901f-c07239a5131b">
 
-<https://www.daft.ie/share/.../1234567>
-
-Where 1234567 is the listing.
+Then the list of excluded listings will be in the local storage, which you can find in the developer console of your browser.
+It will be under daft.ie local storage, with the name `excludedListings`.
 
 ## Installation
 
