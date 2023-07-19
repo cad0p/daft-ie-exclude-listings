@@ -50,10 +50,11 @@
 
   /**
    * Create a button element to exclude a listing
+   * @param {HTMLElement} map
    * @param {string} id
    * @returns
    */
-  function createButton(id) {
+  function createButton(map, id) {
     const button = document.createElement("button");
     button.style.position = "absolute";
     button.style.top = "5px"; // Move it down by 5 pixels
@@ -70,8 +71,15 @@
       // Exclude the listing
       excludeListing(parseInt(id));
       // Close the popup
-      const popup = document.querySelector(".SubUnit__Wrapper-sc-10x486s-0");
+      const popup = map.querySelector(".SubUnit__Wrapper-sc-10x486s-0");
       popup.remove();
+      // Update the map
+      const mapbox = map.map;
+      // Fly to the new position
+      mapbox.flyTo({
+        center: mapbox.getCenter(),
+        zoom: mapbox.getZoom(), // Keep the same zoom level
+      });
     });
     return button;
   }
@@ -111,7 +119,7 @@
                     console.log("Listing id", id);
 
                     // Create a button for this listing
-                    const button = createButton(id);
+                    const button = createButton(map, id);
 
                     // Append it to the thumbnail div
                     const thumbnail = mapListing.querySelector(
