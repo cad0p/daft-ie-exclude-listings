@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Daft.ie exclude listings
 // @namespace    https://github.com/cad0p
-// @version      0.1
+// @version      0.2
 // @description  try to get a place to stay in Ireland!
 // @author       Pier Carlo Cadoppi
 // @match        https://www.daft.ie/*/mapArea?showMap=true*
