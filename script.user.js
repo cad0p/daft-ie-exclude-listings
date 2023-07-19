@@ -37,4 +37,43 @@
     });
     origOpen.apply(this, arguments);
   };
+
+  // Add a listing id to the exclude set
+  function excludeListing(id) {
+    listingsToExclude.add(id);
+    console.log(`Excluded listing ${id}`);
+  }
+
+  // Create a button element to exclude a listing
+  function createButton(id) {
+    const button = document.createElement("button");
+    button.style.position = "absolute";
+    button.style.top = "0";
+    button.style.right = "0";
+    button.style.backgroundColor = "red";
+    button.style.color = "white";
+    button.style.border = "none";
+    button.style.padding = "5px";
+    button.style.cursor = "pointer";
+    button.textContent = "X";
+    button.addEventListener("click", () => excludeListing(id));
+    return button;
+  }
+  // Select all the listing elements
+  const listings = document.querySelectorAll(".SubUnit__Wrapper-sc-10x486s-0");
+  console.log(listings);
+
+  // Iterate over them and append a button to each thumbnail
+  for (const listing of listings) {
+    // Get the listing id from the href attribute
+    const href = listing.getAttribute("href");
+    const id = href.split("/").pop();
+    // Create a button for this listing
+    const button = createButton(id);
+    // Append it to the thumbnail div
+    const thumbnail = listing.querySelector(
+      ".SubUnit__ThumbnailBackdrop-sc-10x486s-2"
+    );
+    thumbnail.appendChild(button);
+  }
 })();
