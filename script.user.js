@@ -93,22 +93,16 @@
                     const href = mapListing.getAttribute("href");
                     const id = href.split("/").pop();
                     console.log("Listing id", id);
-                  }
 
-                  // // Iterate over them and append a button to each thumbnail
-                  // for (const listing of listings) {
-                  //   // Get the listing id from the href attribute
-                  //   const href = listing.getAttribute("href");
-                  //   const id = href.split("/").pop();
-                  //   console.log("Listing id", id);
-                  //   // // Create a button for this listing
-                  //   // const button = createButton(id);
-                  //   // // Append it to the thumbnail div
-                  //   // const thumbnail = listing.querySelector(
-                  //   //   ".SubUnit__ThumbnailBackdrop-sc-10x486s-2"
-                  //   // );
-                  //   // thumbnail.appendChild(button);
-                  // }
+                    // Create a button for this listing
+                    const button = createButton(id);
+
+                    // Append it to the thumbnail div
+                    const thumbnail = mapListing.querySelector(
+                      ".SubUnit__ColA-sc-10x486s-1"
+                    );
+                    thumbnail.appendChild(button);
+                  }
                 }, 500); // Adjust the delay as needed
               },
               true
