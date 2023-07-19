@@ -98,9 +98,9 @@
                 // Wait for a short delay to let the listings load
                 setTimeout(() => {
                   // Select all the listing elements
-                  const mapListing = document.getElementsByClassName(
-                    "SubUnit__Wrapper-sc-10x486s-0"
-                  )[0];
+                  const mapListing = document.querySelector(
+                    ".SubUnit__Wrapper-sc-10x486s-0"
+                  );
 
                   if (mapListing) {
                     console.log("Found map listing:", mapListing);
