@@ -56,14 +56,14 @@
   function createButton(id) {
     const button = document.createElement("button");
     button.style.position = "absolute";
-    button.style.top = "0";
-    button.style.right = "0";
+    button.style.top = "5px"; // Move it down by 5 pixels
+    button.style.right = "5px"; // Move it left by 5 pixels
     button.style.backgroundColor = "red";
     button.style.color = "white";
     button.style.border = "none";
     button.style.padding = "5px";
     button.style.cursor = "pointer";
-    button.textContent = "X";
+    button.textContent = "EXCLUDE"; // Use capital letters
     button.addEventListener("click", (event) => {
       // Prevent the default behavior of the anchor element
       event.preventDefault();
