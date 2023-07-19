@@ -23,15 +23,10 @@
       }
       const res = JSON.parse(this.responseText);
       if ("listings" in res) {
-        console.log("request completed!");
-        console.log(this.getResponseHeader("content-type"));
-        console.log(res.listings); //whatever the response was
         // Filter the listings
         res.listings = res.listings.filter(
           (l) => !listingsToExclude.has(l.listing.id)
         );
-        console.log(res.listings);
-        console.log(res);
         // Override the response text.
         Object.defineProperty(this, "responseText", {
           get() {
