@@ -23,6 +23,7 @@
       }
       const res = JSON.parse(this.responseText);
       if ("listings" in res) {
+        console.log("Excluding listings:", listingsToExclude);
         // Filter the listings
         res.listings = res.listings.filter(
           (l) => !listingsToExclude.has(l.listing.id)
@@ -38,13 +39,20 @@
     origOpen.apply(this, arguments);
   };
 
-  // Add a listing id to the exclude set
+  /**
+   * Add a listing id to the exclude set
+   * @param {number} id
+   */
   function excludeListing(id) {
     listingsToExclude.add(id);
     console.log(`Excluded listing ${id}`);
   }
 
-  // Create a button element to exclude a listing
+  /**
+   * Create a button element to exclude a listing
+   * @param {string} id
+   * @returns
+   */
   function createButton(id) {
     const button = document.createElement("button");
     button.style.position = "absolute";
@@ -60,7 +68,7 @@
       // Prevent the default behavior of the anchor element
       event.preventDefault();
       // Exclude the listing
-      excludeListing(id);
+      excludeListing(parseInt(id));
     });
     return button;
   }
@@ -108,7 +116,7 @@
                     );
                     thumbnail.appendChild(button);
                   }
-                }, 500); // Adjust the delay as needed
+                }, 100); // Adjust the delay as needed
               },
               true
             ); // Set useCapture to true
