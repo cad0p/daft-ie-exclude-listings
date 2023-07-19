@@ -40,6 +40,24 @@
   };
 
   /**
+   * Updates the map to show the excluded listings
+   * by zooming out and then zooming in
+   */
+  function updateMap() {
+    // Select the zoom out button
+    const zoomOutButton = document.querySelector(".mapboxgl-ctrl-zoom-out");
+    // Select the zoom in button
+    const zoomInButton = document.querySelector(".mapboxgl-ctrl-zoom-in");
+    // Click on the zoom out button once
+    zoomOutButton.click();
+    // Wait for a short delay
+    setTimeout(() => {
+      // Click on the zoom in button once
+      zoomInButton.click();
+    }, 500); // Adjust the delay as needed
+  }
+
+  /**
    * Add a listing id to the exclude set
    * @param {number} id
    */
@@ -73,17 +91,7 @@
       // Close the popup
       const popup = map.querySelector(".SubUnit__Wrapper-sc-10x486s-0");
       popup.remove();
-      // Select the zoom out button
-      const zoomOutButton = document.querySelector(".mapboxgl-ctrl-zoom-out");
-      // Select the zoom in button
-      const zoomInButton = document.querySelector(".mapboxgl-ctrl-zoom-in");
-      // Click on the zoom out button once
-      zoomOutButton.click();
-      // Wait for a short delay
-      setTimeout(() => {
-        // Click on the zoom in button once
-        zoomInButton.click();
-      }, 500); // Adjust the delay as needed
+      updateMap();
     });
     return button;
   }
@@ -101,6 +109,7 @@
             // Select the map element
             const map = node;
             console.log("Map element", map);
+            updateMap();
             // Add a click event listener with useCapture option
             map.addEventListener(
               "click",
