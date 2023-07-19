@@ -98,7 +98,7 @@
                 // Wait for a short delay to let the listings load
                 setTimeout(() => {
                   // Select all the listing elements
-                  const mapListing = document.querySelector(
+                  const mapListing = map.querySelector(
                     ".SubUnit__Wrapper-sc-10x486s-0"
                   );
 
