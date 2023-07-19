@@ -73,13 +73,17 @@
       // Close the popup
       const popup = map.querySelector(".SubUnit__Wrapper-sc-10x486s-0");
       popup.remove();
-      // Update the map
-      const mapbox = map.map;
-      // Fly to the new position
-      mapbox.flyTo({
-        center: mapbox.getCenter(),
-        zoom: mapbox.getZoom(), // Keep the same zoom level
-      });
+      // Select the zoom out button
+      const zoomOutButton = document.querySelector(".mapboxgl-ctrl-zoom-out");
+      // Select the zoom in button
+      const zoomInButton = document.querySelector(".mapboxgl-ctrl-zoom-in");
+      // Click on the zoom out button once
+      zoomOutButton.click();
+      // Wait for a short delay
+      setTimeout(() => {
+        // Click on the zoom in button once
+        zoomInButton.click();
+      }, 500); // Adjust the delay as needed
     });
     return button;
   }
