@@ -4,7 +4,7 @@
 // @version      0.1
 // @description  try to get a place to stay in Ireland!
 // @author       Pier Carlo Cadoppi
-// @match        https://www.daft.ie/property-for-rent/*
+// @match        https://www.daft.ie/*/mapArea?showMap=true*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=daft.ie
 // @grant        none
 // @license      MIT
