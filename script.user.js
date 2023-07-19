@@ -69,6 +69,9 @@
       event.preventDefault();
       // Exclude the listing
       excludeListing(parseInt(id));
+      // Close the popup
+      const popup = document.querySelector(".SubUnit__Wrapper-sc-10x486s-0");
+      popup.remove();
     });
     return button;
   }
