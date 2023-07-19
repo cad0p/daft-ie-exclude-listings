@@ -11,7 +11,7 @@
 // ==/UserScript==
 
 (function () {
-  const listingsToExclude = new Set([5326983]);
+  const listingsToExclude = retrieveExcludedListings();
 
   const origOpen = XMLHttpRequest.prototype.open;
   XMLHttpRequest.prototype.open = function () {
@@ -39,6 +39,25 @@
     origOpen.apply(this, arguments);
   };
 
+  function storeExcludedListings() {
+    // Convert the set of excluded listings to a JSON string
+    const excludedListingsJSON = JSON.stringify([...listingsToExclude]);
+    // Store the JSON string in the local storage with a key of "excludedListings"
+    localStorage.setItem("excludedListings", excludedListingsJSON);
+  }
+
+  function retrieveExcludedListings() {
+    // Retrieve the JSON string from the local storage with the same key
+    const retrievedJSON = localStorage.getItem("excludedListings");
+    // Check if the retrieved JSON is null
+    if (retrievedJSON === null) {
+      // Use an empty array as the default value
+      retrievedJSON = "[]";
+    }
+    // Convert the JSON string back to a set of excluded listings
+    return new Set(JSON.parse(retrievedJSON));
+  }
+
   /**
    * Updates the map to show the excluded listings
    * by zooming out and then zooming in
@@ -64,6 +83,7 @@
   function excludeListing(id) {
     listingsToExclude.add(id);
     console.log(`Excluded listing ${id}`);
+    storeExcludedListings();
   }
 
   /**
