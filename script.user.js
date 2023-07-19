@@ -56,7 +56,12 @@
     button.style.padding = "5px";
     button.style.cursor = "pointer";
     button.textContent = "X";
-    button.addEventListener("click", () => excludeListing(id));
+    button.addEventListener("click", (event) => {
+      // Prevent the default behavior of the anchor element
+      event.preventDefault();
+      // Exclude the listing
+      excludeListing(id);
+    });
     return button;
   }
 
