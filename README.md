@@ -7,3 +7,7 @@ Right now to exclude it you have to modify the code and add the id of the listin
 <https://www.daft.ie/share/.../1234567>
 
 Where 1234567 is the listing.
+
+## Installation
+
+You need to have [Tampermonkey](https://www.tampermonkey.net/) installed in your browser. Then you can install the script from [Greasy Fork](https://greasyfork.org/en/scripts/471198-daft-ie-exclude-listings).
