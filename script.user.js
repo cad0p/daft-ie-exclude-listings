@@ -48,7 +48,7 @@
 
   function retrieveExcludedListings() {
     // Retrieve the JSON string from the local storage with the same key
-    const retrievedJSON = localStorage.getItem("excludedListings");
+    let retrievedJSON = localStorage.getItem("excludedListings");
     // Check if the retrieved JSON is null
     if (retrievedJSON === null) {
       // Use an empty array as the default value
