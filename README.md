@@ -11,3 +11,7 @@ It will be under daft.ie local storage, with the name `excludedListings`.
 ## Installation
 
 You need to have [Tampermonkey](https://www.tampermonkey.net/) installed in your browser. Then you can install the script from [Greasy Fork](https://greasyfork.org/en/scripts/471198-daft-ie-exclude-listings).
+
+## Troubleshooting
+
+If the "exclude" button is not showing up, try reloading the map 2-3 times until the map zooms in and out briefly when it loads. Then you should see the buttons appear and the already excluded listings disappear.
